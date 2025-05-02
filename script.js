@@ -35,6 +35,8 @@ class Person {
   }
 }
 
+// Common to add properties to this, but methods to the prototype
+
 const he = new Person()
 const she = new Person()
 
@@ -47,3 +49,29 @@ Person.prototype.talk = function() {
 
 he.talk()
 she.talk()
+
+class SuperHuman extends Person{
+  fly() {
+    return "Flying"
+  }
+} 
+
+const superHe = new SuperHuman();
+
+const someone = {
+  talk() {
+    return "Talking"
+  }
+}
+
+const meNew = Object.create(someone); 
+// Inherited everything from object that we passed
+
+console.log(meNew)
+
+const meNewest = {
+};
+
+Object.setPrototypeOf(meNewest, someone) // (instance, from where to inherit)
+
+console.log(meNewest)
